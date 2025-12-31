@@ -355,4 +355,14 @@ done
 # Cleanup
 rm -f /tmp/ci-bench-prev-$$
 
+# Show equivalent command for non-interactive use
+if [[ "$SELECTED_STEP" == "__TOTAL__" ]]; then
+    STEP_ARG="total"
+else
+    STEP_ARG="$SELECTED_STEP"
+fi
+echo ""
+echo "Command:"
+printf "  %s --repo %s --pr %s --workflow %q --job %q --step %q\n" \
+    "$0" "$REPO" "$PR" "$SELECTED_WORKFLOW" "$SELECTED_JOB" "$STEP_ARG"
 echo ""
