@@ -333,8 +333,8 @@ echo "$RUNS_JSON" | jq -c '.[]' | while read -r run; do
     DURATION_STR=$(format_duration $DURATION)
 
     # Calculate delta from previous
-    if [[ -f /tmp/ci-timing-prev-$$ ]]; then
-        PREV_DURATION=$(cat /tmp/ci-timing-prev-$$)
+    if [[ -f /tmp/ci-bench-prev-$$ ]]; then
+        PREV_DURATION=$(cat /tmp/ci-bench-prev-$$)
         DELTA=$((DURATION - PREV_DURATION))
         if [[ $DELTA -gt 0 ]]; then
             DELTA_STR="+$(format_duration $DELTA)"
@@ -347,12 +347,12 @@ echo "$RUNS_JSON" | jq -c '.[]' | while read -r run; do
         DELTA_STR="-"
     fi
 
-    echo "$DURATION" > /tmp/ci-timing-prev-$$
+    echo "$DURATION" > /tmp/ci-bench-prev-$$
 
     printf "%-10s %-9s %-12s %-10s %-10s %s\n" "#$RUN_NUMBER" "$COMMIT_SHA" "$RUN_DATE" "$DURATION_STR" "$DELTA_STR" "$COMMIT_MSG"
 done
 
 # Cleanup
-rm -f /tmp/ci-timing-prev-$$
+rm -f /tmp/ci-bench-prev-$$
 
 echo ""
