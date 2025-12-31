@@ -59,7 +59,12 @@ Run        Commit    Date         Duration   Delta      Message
 #19398     d7def50   2025-12-20   12m 11s    -          rdb: pre-size hash dicts using original length on load
 #19512     a3b4c5d   2025-12-21   11m 45s    -26s       Optimize memory allocation
 #19687     e6f7g8h   2025-12-22   10m 30s    -1m 15s    Further performance improvements
+
+Command:
+  ./ci-bench.sh --repo redis/redis --pr 14635 --workflow CI --job test-ubuntu-latest --step test
 ```
+
+After each run, the equivalent non-interactive command is shown so you can easily reuse it.
 
 ## Options
 
