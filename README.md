@@ -6,7 +6,7 @@ A CLI tool to analyze GitHub Actions CI runtimes across PR runs. Track how code 
 
 ```bash
 # Clone the repo
-git clone https://github.com/YOUR_USERNAME/ci-bench.git
+git clone https://github.com/paul-schaaf/ci-bench.git
 
 # Make executable (already set)
 chmod +x ci-bench.sh
